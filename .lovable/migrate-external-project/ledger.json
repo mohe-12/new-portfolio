@@ -1,0 +1,89 @@
+{
+  "source": "code-archive",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "src/routes (/, /privacy, /terms) and src/components/site",
+      "outcome": "migrate: copy portfolio, legal pages, header, footer, brand logo, styles",
+      "status": "verified",
+      "next_action": ""
+    },
+    {
+      "capability": "assets",
+      "source": "10 Lovable Assets pointers owned by the original project (7 used on the home page); image bytes not included in archive",
+      "outcome": "migrate: re-upload images to this project",
+      "status": "pending_user",
+      "next_action": "User uploads the original photos and project screenshots"
+    },
+    {
+      "capability": "favicon",
+      "source": "public/favicon.png",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": ""
+    },
+    {
+      "capability": "schema",
+      "source": "No database calls or schema in source",
+      "outcome": "not applicable",
+      "status": "not_applicable",
+      "next_action": ""
+    },
+    {
+      "capability": "records",
+      "source": "Static content inline in route source",
+      "outcome": "preserved with code",
+      "status": "verified",
+      "next_action": ""
+    },
+    {
+      "capability": "auth identities",
+      "source": "No authentication in source",
+      "outcome": "not applicable",
+      "status": "not_applicable",
+      "next_action": ""
+    },
+    {
+      "capability": "authorization",
+      "source": "Public portfolio only",
+      "outcome": "not applicable",
+      "status": "not_applicable",
+      "next_action": ""
+    },
+    {
+      "capability": "external providers",
+      "source": "Google Fonts (Manrope, Sora) and Simple Icons CDN",
+      "outcome": "preserve",
+      "status": "verified",
+      "next_action": ""
+    },
+    {
+      "capability": "contact",
+      "source": "mailto form to CONTACT.email; phone and profile links are placeholders in source",
+      "outcome": "preserve mailto behavior",
+      "status": "pending_user",
+      "next_action": "User supplies real phone, GitHub and LinkedIn links"
+    },
+    {
+      "capability": "public endpoints / callbacks / webhooks / schedules / secrets",
+      "source": "None detected",
+      "outcome": "not applicable",
+      "status": "not_applicable",
+      "next_action": ""
+    },
+    {
+      "capability": "cutover",
+      "source": "Not yet published from this project",
+      "outcome": "user-controlled publish",
+      "status": "pending",
+      "next_action": "Publish when ready"
+    },
+    {
+      "capability": "verification",
+      "source": "Routes, filters, contact form, images",
+      "outcome": "Home, privacy and terms load; project filter works; tests pass. Images pending upload.",
+      "status": "verified",
+      "next_action": ""
+    }
+  ]
+}
