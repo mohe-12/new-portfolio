@@ -24,11 +24,9 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { WorkingProcess } from "@/components/site/WorkingProcess";
 import { CONTACT } from "@/components/site/data";
-import portraitAsset from "@/assets/hero-profile.webp.asset.json";
 import { FadeImg, Reveal } from "@/components/site/Reveal";
-const portrait = portraitAsset.url;
-const heroProfile = "https://i.postimg.cc/ZKt0KPZk/Confident-Man-in-Blue-Shirt.png";
-const aboutProfile = "https://i.postimg.cc/XYDbX3F0/about-picture.png";
+const heroProfile = "/hero-profile.webp";
+const aboutProfile = "/about-picture.webp";
 import folioAsset from "@/assets/portfolio-snapshot.webp.asset.json";
 const folio = folioAsset.url;
 
@@ -55,7 +53,7 @@ export const Route = createFileRoute("/")({
         rel: "preload",
         as: "image",
         href: heroProfile,
-        type: "image/png",
+        type: "image/webp",
         fetchPriority: "high",
       },
     ],
