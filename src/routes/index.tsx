@@ -4,6 +4,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Code2,
+  Download,
   ExternalLink,
   FileText,
   Github,
@@ -200,8 +201,8 @@ function Squiggle({ className = "" }: { className?: string }) {
 
 function SectionTitle({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
   return (
-    <Reveal className="mx-auto mb-14 max-w-2xl text-center">
-      <p className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+    <Reveal className="mx-auto mb-14 max-w-2xl text-left sm:text-center">
+      <p className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-primary">
         <span aria-hidden className="h-px w-10 shrink-0 bg-current opacity-40" />
         {eyebrow}
       </p>
@@ -247,7 +248,7 @@ function Index() {
                   className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent 
                    px-5 py-3.5 sm:px-7 font-semibold text-accent-foreground shadow-soft transition hover:-translate-y-0.5"
                 >
-                  View My Projects{" "}
+                  View Projects{" "}
                   <ArrowRight className="hidden h-4 w-4 shrink-0 transition group-hover:translate-x-1 min-[380px]:block" />
                 </Link>
                 <Link
@@ -279,7 +280,7 @@ function Index() {
                 <p className="flex items-center gap-2 text-sm font-semibold">
                   <Code2 className="h-4 w-4 text-primary" /> Full-Stack
                 </p>
-                <p className="text-xs text-muted-foreground">React · Node · Vue</p>
+                <p className="text-xs text-muted-foreground">React · Node · Next</p>
               </div>
             </div>
           </div>
@@ -333,7 +334,7 @@ function Index() {
               <div className="aspect-square" />
             </Reveal>
             <Reveal variant="right" delay={120}>
-              <p className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <p className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-accent">
                 <span aria-hidden className="h-px w-10 shrink-0 bg-current opacity-40" />
                 About me
               </p>
@@ -553,7 +554,7 @@ function TalkBanner() {
       <div className="grid-dots absolute inset-0 opacity-50" />
       <Squiggle className="left-[45%] top-1/2 hidden text-primary-foreground/70 md:block" />
       <div className="relative mx-auto grid max-w-6xl items-end gap-6 px-6 pt-16 md:grid-cols-2">
-        <Reveal className="pb-16">
+        <Reveal variant="left" className="pb-16">
           <span className="mb-4 block h-3 w-3 rounded-full bg-accent" />
           <h2 className="text-3xl font-bold md:text-5xl">
             Got a project?
@@ -570,6 +571,15 @@ function TalkBanner() {
           >
             Contact me <ArrowRight className="h-4 w-4" />
           </Link>
+          <a
+            href="/mohammed-resume.pdf"
+            download="mohammed-resume.pdf"
+            className="mt-8 ml-3 inline-flex
+                    px-5 py-3.5 sm:px-7 transition items-center gap-2 rounded-full  px-7 py-3.5 font-semibold text-primary-foreground transition  hover:text-primary hover:-translate-y-0.5 hover:bg-primary-foreground"
+          >
+            <Download className="h-4 w-4" />
+            CV
+          </a>
         </Reveal>
         <Reveal variant="zoom" delay={120} className="relative hidden justify-center md:flex">
           <div className="absolute bottom-0 h-[70%] w-[70%] rounded-t-full bg-primary-foreground/15" />
@@ -594,7 +604,7 @@ function Contact() {
       <div className="bg-hero relative mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-[2rem] p-6 text-primary-foreground sm:rounded-[2.5rem] sm:p-10 md:grid-cols-2 lg:p-14">
         <div className="grid-dots absolute inset-0 opacity-40" />
         <Reveal variant="left" className="relative">
-          <p className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+          <p className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-accent">
             <span aria-hidden className="h-px w-10 shrink-0 bg-current opacity-40" />
             Contact
           </p>
