@@ -22,6 +22,7 @@ import { useState, type FormEvent } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { WorkingProcess } from "@/components/site/WorkingProcess";
 import { CONTACT } from "@/components/site/data";
 import portraitAsset from "@/assets/hero-profile.webp.asset.json";
 import { FadeImg, Reveal } from "@/components/site/Reveal";
@@ -334,7 +335,7 @@ function Index() {
               <div className="aspect-square" />
             </Reveal>
             <Reveal variant="right" delay={120}>
-              <p className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-accent">
+              <p className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-primary">
                 <span aria-hidden className="h-px w-10 shrink-0 bg-current opacity-40" />
                 About me
               </p>
@@ -375,7 +376,7 @@ function Index() {
         {/* Services */}
         <section id="services" className="relative scroll-mt-24 overflow-hidden px-6 py-24">
           <Squiggle className="right-[10%] top-12 text-primary" />
-          <span className="absolute left-[8%] top-20 h-10 w-10 rounded-full border-4 border-accent/60" />
+          <span className="absolute left-[8%] top-10 h-10 w-10 rounded-full border-4 border-accent/60" />
           <div className="mx-auto max-w-6xl">
             <SectionTitle eyebrow="Services" title="What I can do for you" />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -459,7 +460,7 @@ function Index() {
                           </a>
                         ) : (
                           <span className="inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-medium text-muted-foreground">
-                            Demo coming soon
+                            Live Demo
                           </span>
                         )}
                         {p.repo && (
@@ -522,6 +523,7 @@ function Index() {
           </div>
         </section>
 
+        <WorkingProcess />
         <TalkBanner />
         <Contact />
       </main>
@@ -553,8 +555,8 @@ function TalkBanner() {
     <section className="bg-hero relative overflow-hidden text-primary-foreground">
       <div className="grid-dots absolute inset-0 opacity-50" />
       <Squiggle className="left-[45%] top-1/2 hidden text-primary-foreground/70 md:block" />
-      <div className="relative mx-auto grid max-w-6xl items-end gap-6 px-6 pt-16 md:grid-cols-2">
-        <Reveal variant="left" className="pb-16">
+      <Reveal className="relative mx-auto grid max-w-6xl items-end gap-6 px-6 pt-16 md:grid-cols-2">
+        <div className="pb-16">
           <span className="mb-4 block h-3 w-3 rounded-full bg-accent" />
           <h2 className="text-3xl font-bold md:text-5xl">
             Got a project?
@@ -564,113 +566,188 @@ function TalkBanner() {
           <p className="mt-4 max-w-md text-primary-foreground/80">
             From a first idea to a finished product, I'd love to help you build it.
           </p>
-          <Link
-            to="/"
-            hash="contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-semibold text-accent-foreground transition hover:-translate-y-0.5"
-          >
-            Contact me <ArrowRight className="h-4 w-4" />
-          </Link>
-          <a
-            href="/mohammed-resume.pdf"
-            download="mohammed-resume.pdf"
-            className="mt-8 ml-3 inline-flex
-                    px-5 py-3.5 sm:px-7 transition items-center gap-2 rounded-full  px-7 py-3.5 font-semibold text-primary-foreground transition  hover:text-primary hover:-translate-y-0.5 hover:bg-primary-foreground"
-          >
-            <Download className="h-4 w-4" />
-            CV
-          </a>
-        </Reveal>
-        <Reveal variant="zoom" delay={120} className="relative hidden justify-center md:flex">
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              to="/"
+              hash="contact"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 font-semibold text-accent-foreground transition hover:-translate-y-0.5 active:scale-[0.97] sm:w-auto"
+            >
+              Contact me
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <a
+              href="/mohammed-resume.pdf"
+              download="mohammed-resume.pdf"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary-foreground/30 px-7 py-3.5 font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:bg-primary-foreground hover:text-primary active:scale-[0.97] sm:w-auto"
+            >
+              <Download className="h-4 w-4" />
+              Download CV
+            </a>
+          </div>
+        </div>
+
+        <div className="relative hidden justify-center md:flex">
           <div className="absolute bottom-0 h-[70%] w-[70%] rounded-t-full bg-primary-foreground/15" />
           <FadeImg src={heroProfile} alt="" width={600} height={800} className="relative w-72" />
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent("Project inquiry from " + form.name)}&body=${body}`;
+
+    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+      "Project inquiry from " + form.name,
+    )}&body=${body}`;
   };
+
   const input =
-    "w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30";
+    "w-full rounded-xl border border-border bg-background/80 px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10";
+
   return (
     <section id="contact" className="scroll-mt-24 overflow-x-clip px-4 py-16 sm:px-6 sm:py-24">
-      <div className="bg-hero relative mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-[2rem] p-6 text-primary-foreground sm:rounded-[2.5rem] sm:p-10 md:grid-cols-2 lg:p-14">
+      <div className="bg-hero relative mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-[2rem] p-6 text-primary-foreground sm:rounded-[2.5rem] sm:p-10 md:grid-cols-2 md:items-center lg:p-14">
+        {/* Background */}
         <div className="grid-dots absolute inset-0 opacity-40" />
+
+        {/* Contact information */}
         <Reveal variant="left" className="relative">
           <p className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-accent">
             <span aria-hidden className="h-px w-10 shrink-0 bg-current opacity-40" />
             Contact
           </p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-5xl">
+
+          <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Let's Create Something Amazing!
           </h2>
-          <p className="mt-5 text-primary-foreground/80">
+
+          <p className="mt-5 max-w-md leading-relaxed text-primary-foreground/80">
             Have a project, a role or an idea? Send a message and I'll get back to you.
           </p>
+
+          {/* Contact links */}
           <ul className="mt-8 space-y-4">
             {[
               { I: Mail, v: CONTACT.email, h: `mailto:${CONTACT.email}` },
-              { I: Phone, v: CONTACT.phone, h: `tel:${CONTACT.phone.replace(/\s/g, "")}` },
-              { I: Linkedin, v: "LinkedIn profile", h: CONTACT.linkedin },
+              {
+                I: Phone,
+                v: CONTACT.phone,
+                h: `tel:${CONTACT.phone.replace(/\s/g, "")}`,
+              },
+              {
+                I: Linkedin,
+                v: "LinkedIn profile",
+                h: CONTACT.linkedin,
+              },
             ].map(({ I, v, h }) => (
               <li key={v}>
-                <a href={h} className="group flex min-w-0 items-center gap-3 font-medium">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary-foreground/15">
+                <a
+                  href={h}
+                  target={h.startsWith("mailto:") || h.startsWith("tel:") ? undefined : "_blank"}
+                  rel={h.startsWith("mailto:") || h.startsWith("tel:") ? undefined : "noreferrer"}
+                  className="group flex min-w-0 items-center gap-3 font-medium transition-colors duration-300 hover:text-accent"
+                >
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-primary-foreground/10 bg-primary-foreground/10 transition-all duration-300 group-hover:border-accent/40 group-hover:bg-accent/15">
                     <I className="h-5 w-5" />
                   </span>
+
                   <span className="min-w-0 break-words">{v}</span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 transition group-hover:opacity-100" />
+
+                  <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100" />
                 </a>
               </li>
             ))}
           </ul>
         </Reveal>
+
+        {/* Contact form */}
         <Reveal variant="right" delay={120} className="relative">
           <form
             onSubmit={onSubmit}
-            className="space-y-4 rounded-3xl bg-card p-6 text-card-foreground shadow-soft md:p-8"
+            className="relative space-y-5 overflow-hidden rounded-3xl border border-border/60 bg-card p-5 text-card-foreground shadow-soft sm:p-7 md:p-8"
           >
-            <input
-              aria-label="Your name"
-              autoComplete="name"
-              required
-              placeholder="Your name"
-              className={input}
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-            />
-            <input
-              aria-label="Your email"
-              autoComplete="email"
-              required
-              type="email"
-              placeholder="Your email"
-              className={input}
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-            />
-            <textarea
-              aria-label="Tell me about your project"
-              required
-              rows={5}
-              placeholder="Tell me about your project"
-              className={input}
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-            />
+            {/* Form heading */}
+            <div className="mb-2">
+              <h3 className="mt-2 text-2xl font-bold tracking-tight">Send me a message</h3>
+
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Fill out the form below and let's discuss your next project.
+              </p>
+            </div>
+
+            {/* Name */}
+            <div className="space-y-2">
+              <label htmlFor="contact-name" className="text-sm font-medium">
+                Your name
+              </label>
+
+              <input
+                id="contact-name"
+                autoComplete="name"
+                required
+                placeholder="John Doe"
+                className={input}
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+              />
+            </div>
+
+            {/* Email */}
+            <div className="space-y-2">
+              <label htmlFor="contact-email" className="text-sm font-medium">
+                Email address
+              </label>
+
+              <input
+                id="contact-email"
+                autoComplete="email"
+                required
+                type="email"
+                placeholder="you@example.com"
+                className={input}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
+            </div>
+
+            {/* Message */}
+            <div className="space-y-2">
+              <label htmlFor="contact-message" className="text-sm font-medium">
+                Project details
+              </label>
+
+              <textarea
+                id="contact-message"
+                required
+                rows={5}
+                placeholder="Tell me about your project, goals, or ideas..."
+                className={`${input} min-h-36 resize-y`}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+              />
+            </div>
+
+            {/* Submit */}
             <Button
               type="submit"
-              className="h-auto inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 font-semibold text-accent-foreground transition hover:-translate-y-0.5"
+              className="group h-auto inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 font-semibold text-accent-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              Send message <Send className="h-4 w-4" />
+              Send message
+              <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
+
+            <p className="text-center text-xs leading-relaxed text-muted-foreground">
+              Your message will open in your email application.
+            </p>
           </form>
         </Reveal>
       </div>

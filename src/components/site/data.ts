@@ -1,6 +1,6 @@
 export const CONTACT = {
   email: "mohehasen690@gmail.com",
-  phone: "+251 900 000 000",
+  phone: "+251 914 203 741",
   linkedin: "https://www.linkedin.com/mohammed-hasen",
   github: "https://github.com/mohe-12",
 };
