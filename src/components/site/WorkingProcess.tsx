@@ -90,8 +90,14 @@ export function WorkingProcess() {
                   )}
 
                   <div className="grid h-28 w-28 place-items-center rounded-full border border-dashed border-primary/45 p-2">
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:-translate-y-1">
+                    <div className="relative grid h-20 w-20 place-items-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:-translate-y-1">
                       <Icon aria-hidden="true" className="h-9 w-9" strokeWidth={1.8} />
+                      <span
+                        aria-hidden="true"
+                        className="animate-float absolute -right-2 -top-2 grid size-8 place-items-center rounded-full border-4 border-background bg-accent font-display text-xs font-bold text-accent-foreground shadow-sm"
+                      >
+                        {step.number}
+                      </span>
                     </div>
                   </div>
 
