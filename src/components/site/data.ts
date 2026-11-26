@@ -5,6 +5,7 @@ export const CONTACT = {
   github: "https://github.com/mohe-12",
 };
 export const NAV = [
+  { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "services", label: "Services" },
   { id: "projects", label: "Projects" },

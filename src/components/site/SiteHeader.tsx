@@ -183,7 +183,6 @@ export function SiteHeader() {
                     }`}
                   >
                     {n.label}
-                    <ArrowUpRight className="size-4 text-muted-foreground" />
                   </Link>
                 </li>
               );

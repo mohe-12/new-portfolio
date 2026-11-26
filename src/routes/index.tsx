@@ -99,6 +99,7 @@ const PROJECTS = [
     category: "Portfolio",
     status: "Completed",
     img: "https://i.postimg.cc/YCNS878j/portfolio-(2).png",
+    live: "https://mohammedhasen-new-portfolio.vercel.app/",
     repo: "https://github.com/mohe-12",
     desc: "A responsive personal portfolio platform developed to present professional experience, technical capabilities, software projects, and career-related information through a refined digital identity.",
     stack: ["React.js", "Next.js", "Tailwind CSS"],
@@ -175,7 +176,6 @@ const SKILLS: { g: string; items: [string, string | null][] }[] = [
       ["Git", "git"],
       ["GitHub", "github"],
       ["VS Code", "vscodium"],
-      ["Postman", "postman"],
       ["Vercel", "vercel"],
     ],
   },
@@ -219,7 +219,7 @@ function Index() {
       <SiteHeader />
       <main>
         {/* Hero */}
-        <section className="bg-hero relative overflow-hidden text-primary-foreground">
+        <section id="home" className="bg-hero relative overflow-hidden text-primary-foreground">
           <div className="grid-dots absolute inset-0 opacity-60" />
           <Squiggle className="right-[8%] top-24 hidden text-primary-foreground/70 md:block" />
           <Squiggle className="left-[42%] top-40 hidden text-primary-foreground/50 md:block" />
@@ -338,11 +338,11 @@ function Index() {
                 About me
               </p>
               <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                Engineering solutions, not just screens
+                Engineering solutions, not just <span className="text-primary">screens</span>
               </h2>
               <p className="mt-6 text-muted-foreground">
-                I'm a <span className="font-semibold text-primary">software developer</span> with
-                practical<span className="font-semibold text-primary"> full-stack experience </span>
+                I'm a <span className="font-semibold">software developer</span> with practical
+                practical<span className="font-semibold"> full-stack experience </span>
                 building real products for real organisations, from corporate websites to university
                 management systems. I care about reliable digital solutions: scalable architecture,
                 maintainable code and modern web technologies.
