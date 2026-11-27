@@ -190,16 +190,14 @@ export function SiteHeader() {
           </ul>
 
           <div className="mt-2 border-t border-border/60 pt-3">
-            <Link
-              to="/"
-              hash="contact"
-              tabIndex={open ? 0 : -1}
-              onClick={() => setOpen(false)}
+            <a
+              href="/mohammed-resume.pdf"
+              download="mohammed-resume.pdf"
               className="flex items-center justify-center gap-1.5 rounded-2xl bg-gradient-to-r from-accent to-primary-glow px-4 py-3 font-semibold text-accent-foreground"
             >
-              Let's talk
+              Download Resume
               <ArrowUpRight className="size-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

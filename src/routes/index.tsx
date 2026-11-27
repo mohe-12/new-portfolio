@@ -223,8 +223,8 @@ function Index() {
           <div className="grid-dots absolute inset-0 opacity-60" />
           <Squiggle className="right-[8%] top-24 hidden text-primary-foreground/70 md:block" />
           <Squiggle className="left-[42%] top-40 hidden text-primary-foreground/50 md:block" />
-          <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 pt-28 sm:px-6 sm:pt-32 md:grid-cols-2 md:pt-36">
-            <div className="animate-rise pb-16 md:pb-28">
+          <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 pt-28 sm:px-6 sm:pt-32 md:grid-cols-2 md:pt-28">
+            <div className="animate-rise pb-16 md:translate-y-4 md:pb-28">
               <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-4 py-1.5 text-sm font-medium">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75 motion-reduce:animate-none" />
@@ -232,8 +232,8 @@ function Index() {
                 </span>{" "}
                 Available for new opportunities
               </p>
-              <h1 className="mt-6 text-[2.15rem] font-extrabold leading-tight sm:text-5xl md:text-[2.75rem] lg:text-6xl">
-                Hello, I'm <span className="text-accent">Mohammed</span>,{" "}
+              <h1 className="mt-6 text-[2.15rem] font-extrabold leading-tight sm:text-5xl md:text-[2.75rem] lg:text-5xl">
+                Hello, I'm <span className="text-accent">Mohammed Hasen</span>{" "}
                 <span className="whitespace-nowrap">Full-Stack</span> Developer
               </h1>
               <p className="mt-6 max-w-lg text-base text-primary-foreground/80 sm:text-lg">
@@ -269,7 +269,7 @@ function Index() {
                 height={800}
                 fetchPriority="high"
                 decoding="async"
-                className="animate-rise-in relative w-[85%] max-w-md [animation-delay:150ms]"
+                className="animate-rise-in relative w-[85%]  [animation-delay:150ms]"
               />
               <div className="glass animate-float absolute right-0 top-10 sm:right-2 sm:top-16 rounded-2xl px-4 py-3 text-foreground shadow-soft md:right-0">
                 <p className="font-display text-2xl font-bold text-primary">4+</p>
